@@ -1,0 +1,9 @@
+<% if @board %>
+  <h1>New Posting - <%= @board.name %></h1>
+<% else %>
+  <h1>New Posting</h1>
+<% end %>
+
+<%= render 'form', posting: @posting %>
+
+<%= link_to 'Back', postings_path %>

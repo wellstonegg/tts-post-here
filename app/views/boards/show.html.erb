@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @board.name %>
+</p>
+
+<p>
+  <%= link_to "Post to #{@board.name}", new_posting_path(board_id: @board.id) %>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Location</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+<td><%= link_to 'Show', @posting %></td>
+
+  <tbody>
+    <% @postings.each do |posting| %>
+      <tr>
+        <td><%= link_to posting.title, posting %></td>
+        <td><%= posting.location %></td>
+
+      </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @postings %>
+
+<%= link_to 'Edit', edit_board_path(@board) %> |
+<%= link_to 'Back', boards_path %>

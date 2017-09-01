@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TTS P0st Here</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <div class="header">
+      <% if current_user %>
+      Welcome <%= current_user.email %>!
+      <% end %>
+
+	<% if user_signed_in? %>
+		<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+	<% end %>
+
+</div>
+
+    <%= yield %>
+  </body>
+</html>
